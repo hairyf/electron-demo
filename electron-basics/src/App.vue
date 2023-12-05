@@ -9,17 +9,17 @@ async function send() {
   alert(response)
 }
 async function copy() {
-  api.copy()
+  window.api.copy()
 }
 async function show() {
-  api.show()
+  window.api.show()
 }
 async function capture() {
-  const response = await api.capture()
+  const response = await window.api.capture()
   image.value = response
 }
 function logNativeImage() {
-  api.logNativeImage()
+  window.api.logNativeImage()
 }
 
 </script>
@@ -29,7 +29,7 @@ function logNativeImage() {
   <div class="buttons">
     <button @click="send">发送(invoke)</button>
     <button @click="copy">复制(非沙盒)</button>
-    <button @click="capture">展示(剪切板)</button>
+    <button @click="show">展示(剪切板)</button>
     <button @click="capture">抓取页面</button>
     <button @click="logNativeImage">输出(nativeImage)</button>
   </div>
