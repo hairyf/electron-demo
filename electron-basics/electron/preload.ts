@@ -12,8 +12,8 @@ contextBridge.exposeInMainWorld('api', {
     alert(text)
   },
   async capture() {
-    const sources = await ipcRenderer.invoke('capture-event') as Electron.DesktopCapturerSource[]
-    for (const source of sources) {
+    const sources = await ipcRenderer.invoke('capture-event')
+    for (const source of sources as Electron.DesktopCapturerSource[]) {
       if (source.id === 'screen:0:0') {
         return source.thumbnail.toDataURL()
       }

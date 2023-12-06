@@ -86,14 +86,14 @@ function createWindow() {
   win.webContents.on('context-menu', () => {
     contextMenu.popup()
   })
-  
-  mountTray(app, win)
 
   ipcMain.handle('capture-event', async () => {
     return desktopCapturer.getSources({ 
       types: ['window', 'screen']
     })
   })
+  
+  mountTray(app, win)
 }
 
 // Quit when all windows are closed, except on macOS. There, it's common
